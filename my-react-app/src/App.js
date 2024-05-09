@@ -1,23 +1,15 @@
-import logo from './logo.svg';
+import { useState } from 'react'; //React useState Hook allows us to track state in a function
 import './App.css';
 
 function App() {
+
+  //the first value dropzoneActive is current state, the second value setDropzoneActive is the function that update our state
+const [dropzoneActive, setDropzoneActive] = useState( false );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div onDragOver={e =>{setDropzoneActive( true); e.preventDefault();}} 
+      className="dropzone">Drop your file here</div>
     </div>
   );
 }
